@@ -178,8 +178,15 @@ function createItemCards() {
 
     if (!item) return;
 
-    const input = target.closest('.quantity-controls')?.querySelector(`.quantity-input[data-id="${itemId}"]`);
-    if (!input) return;
+    const parentOfBuyButton = target.parentElement; // This should be the .item-card div
+    const input = parentOfBuyButton.querySelector(`.quantity-input[data-id="${itemId}"]`); // Find the input within that parent
+    //const itemCard = target.closest('.item-card'); // Find the parent item card
+    //const input = itemCard.querySelector(`.quantity-input[data-id="${itemId}"]`); // Find the input within that card
+    //const input = target.closest('.quantity-controls')?.querySelector(`.quantity-input[data-id="${itemId}"]`);
+    if (!input) {
+      console.error("Error: Quantity input not found for item ID:", itemId); // Added for better debugging
+      return;
+    }
 
     let quantity = Number.parseInt(input.value) || 0;
 
