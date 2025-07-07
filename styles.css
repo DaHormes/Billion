@@ -1,0 +1,625 @@
+/* styles.css */
+
+:root {
+  --primary-color: #2c3e50; /* Dark blue/grey */
+  --secondary-color: #3498db; /* Bright blue */
+  --accent-color: #e74c3c; /* Red/Orange */
+  --light-color: #ecf0f1; /* Light grey */
+  --dark-color: #2c3e50; /* Same as primary */
+  --success-color: #2ecc71; /* Green */
+  --warning-color: #f39c12; /* Orange */
+  --text-color: #333; /* Dark grey text */
+  --border-radius: 8px;
+  --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  line-height: 1.6;
+  color: var(--text-color);
+  background-color: #f5f7fa; /* Lighter background */
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Header Styles */
+header {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 2rem 0;
+  text-align: center;
+}
+
+header h1 {
+  font-size: 2.8rem; /* Slightly larger */
+  margin-bottom: 0.8rem;
+}
+
+header p {
+  font-size: 1.2rem; /* Slightly larger */
+  max-width: 700px;
+  margin: 0.5rem auto 1.5rem auto; /* More margin */
+}
+
+/* Ad Container */
+.ad-container {
+  margin: 2rem auto;
+  max-width: 728px; /* Standard leaderboard size */
+  min-height: 90px; /* Minimum height for leaderboard ad */
+  overflow: hidden; /* Ensure image doesn't overflow */
+}
+
+.ad-placeholder {
+  background-color: #f1f1f1;
+  border: 1px dashed #ccc;
+  padding: 1rem; /* Smaller padding for image ads */
+  text-align: center;
+  color: #999;
+  border-radius: var(--border-radius);
+  height: 100%; /* Take full height of container */
+  width: 100%; /* Take full width of container */
+
+  /* For dynamic ad content */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2em;
+  font-weight: bold;
+  background-size: cover;
+  background-position: center;
+  color: white; /* Text color over image */
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.7); /* Text shadow for readability */
+  transition: background-image 1s ease-in-out; /* Smooth transition for ad changes */
+}
+
+/* Billionaires Section */
+.billionaires {
+  padding: 3rem 0;
+  text-align: center;
+}
+
+.billionaires h2 {
+  font-size: 2.2rem;
+  margin-bottom: 2rem;
+  color: var(--primary-color);
+}
+
+.billionaire-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid */
+  gap: 2rem;
+  justify-content: center;
+  align-items: stretch; /* Make cards same height */
+}
+
+.billionaire-card {
+  background-color: white;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  padding: 1.5rem;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  display: flex; /* Flexbox for internal alignment */
+  flex-direction: column;
+  justify-content: space-between; /* Push fortune to bottom */
+  align-items: center;
+}
+
+.billionaire-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+}
+
+.billionaire-card img {
+  width: 150px; /* Slightly smaller images */
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1rem;
+  border: 4px solid var(--secondary-color); /* Highlight border */
+}
+
+.billionaire-card h3 {
+  font-size: 1.8rem;
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+}
+
+.billionaire-card p {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--accent-color); /* Highlight fortune */
+  margin-top: 0.5rem;
+}
+
+/* How It Works Section */
+.how-it-works {
+  background-color: var(--light-color);
+  padding: 4rem 0;
+  text-align: center;
+  margin-top: 3rem;
+  border-radius: var(--border-radius);
+}
+
+.how-it-works h2 {
+  font-size: 2.2rem;
+  margin-bottom: 2.5rem;
+  color: var(--primary-color);
+}
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  justify-content: center;
+  padding: 0 20px;
+}
+
+.step {
+  background-color: white;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  padding: 2rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.step-number {
+  background-color: var(--secondary-color);
+  color: white;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.step h3 {
+  font-size: 1.5rem;
+  color: var(--primary-color);
+  margin-bottom: 0.8rem;
+}
+
+.step p {
+  font-size: 1rem;
+  color: var(--text-color);
+}
+
+
+/* Footer */
+footer {
+  background-color: var(--dark-color);
+  color: white;
+  padding: 2rem 0;
+  text-align: center;
+  margin-top: 3rem; /* Add margin to separate from main content */
+}
+
+footer p {
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+/* Responsive Styles for general elements */
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 2rem;
+  }
+  header p {
+    font-size: 1rem;
+  }
+  .billionaire-grid {
+    grid-template-columns: 1fr; /* Single column on small screens */
+  }
+  .billionaire-card {
+    padding: 1rem;
+  }
+  .billionaire-card img {
+    width: 120px;
+    height: 120px;
+  }
+  .billionaire-card h3 {
+    font-size: 1.5rem;
+  }
+  .billionaire-card p {
+    font-size: 1.1rem;
+  }
+  .how-it-works h2 {
+    font-size: 1.8rem;
+  }
+  .steps {
+    grid-template-columns: 1fr;
+  }
+  .step {
+    padding: 1.5rem;
+  }
+}
+
+
+
+/* styles.css (Add to existing CSS) */
+
+/* Billionaire Header Specifics */
+.billionaire-header {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 1.5rem 0 0.5rem 0; /* Adjusted padding */
+  position: relative; /* For back button positioning */
+}
+
+.billionaire-header .container {
+  display: flex;
+  flex-direction: column; /* Stack elements vertically */
+  align-items: center;
+  text-align: center;
+  gap: 1.5rem; /* Space between sections */
+}
+
+.back-button {
+  position: absolute;
+  top: 1.5rem;
+  left: 20px;
+  background-color: var(--secondary-color);
+  color: white;
+  padding: 0.6rem 1.2rem;
+  border-radius: var(--border-radius);
+  text-decoration: none;
+  font-weight: 600;
+  transition: background-color 0.2s ease;
+  z-index: 10; /* Ensure it's above other elements */
+}
+
+.back-button:hover {
+  background-color: #2980b9; /* Darker blue on hover */
+}
+
+.billionaire-profile {
+  display: flex;
+  flex-direction: column; /* Stack profile elements vertically */
+  align-items: center;
+  gap: 1rem;
+}
+
+.billionaire-img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 5px solid var(--secondary-color);
+  box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.2); /* White halo */
+}
+
+.billionaire-info h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.money-container {
+  display: flex;
+  justify-content: space-between; /* Space out label and value */
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.2); /* Slightly transparent background */
+  border-radius: var(--border-radius);
+  padding: 0.5rem 1rem;
+  margin-bottom: 0.5rem;
+  min-width: 300px; /* Ensure consistent width */
+}
+
+.money-label {
+  font-weight: 500;
+  opacity: 0.9;
+}
+
+.money-value {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--light-color); /* Lighter color for values */
+}
+
+#money-remaining {
+  color: var(--success-color); /* Green for remaining money */
+}
+#money-spent {
+  color: var(--accent-color); /* Red for money spent */
+}
+
+
+.actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem; /* Space from money container */
+    margin-bottom: 1.5rem; /* Space before ad */
+}
+
+.action-button {
+  background-color: var(--secondary-color);
+  color: white;
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.action-button:hover {
+  background-color: #2980b9;
+  transform: translateY(-2px);
+}
+
+.action-button.reset-button {
+  background-color: var(--accent-color);
+}
+.action-button.reset-button:hover {
+  background-color: #c0392b;
+}
+
+
+/* Items Grid */
+.items-grid {
+  padding: 3rem 0;
+  text-align: center;
+}
+
+.items-grid h2 {
+  font-size: 2.2rem;
+  margin-bottom: 2rem;
+  color: var(--primary-color);
+}
+
+.items-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Adjusted minmax */
+  gap: 2rem;
+  justify-content: center;
+}
+
+.item-card {
+  background-color: white;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  padding: 1.5rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  transition: transform 0.2s ease-in-out;
+}
+
+.item-card:hover {
+  transform: translateY(-5px);
+}
+
+.item-card img {
+  width: 100%; /* Make image responsive within card */
+  max-width: 250px; /* Max size for uniformity */
+  height: 180px; /* Fixed height for consistency */
+  object-fit: cover; /* Cover ensures image fills space */
+  border-radius: var(--border-radius);
+  margin-bottom: 1rem;
+  border: 1px solid #eee; /* Subtle border */
+}
+
+.item-card h3 {
+  font-size: 1.6rem;
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+}
+
+.item-price {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--secondary-color);
+  margin-bottom: 1rem;
+}
+
+.quantity-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.quantity-controls button {
+  background-color: var(--secondary-color);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.quantity-controls button:hover {
+  background-color: #2980b9;
+}
+
+.quantity-controls input {
+  width: 70px; /* Adjusted width */
+  padding: 0.5rem;
+  text-align: center;
+  border: 1px solid #ccc;
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+}
+/* Hide spin buttons for number input */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+
+.buy-btn {
+  background-color: var(--success-color);
+  color: white;
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: var(--border-radius);
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  width: 100%; /* Full width button */
+}
+
+.buy-btn:hover {
+  background-color: #27ae60;
+  transform: translateY(-2px);
+}
+
+/* Receipt Section */
+.receipt {
+  background-color: white;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  padding: 2rem;
+  margin-top: 3rem;
+}
+
+.receipt h2 {
+  font-size: 2.2rem;
+  color: var(--primary-color);
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.receipt-header {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr; /* Name, Qty, Price, Total */
+  font-weight: 600;
+  padding-bottom: 0.8rem;
+  border-bottom: 2px solid var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+.receipt-item {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  padding: 0.8rem 0;
+  border-bottom: 1px dashed #eee; /* Lighter border for items */
+  align-items: center;
+}
+
+.receipt-item-name {
+  font-weight: 500;
+  color: var(--text-color);
+}
+
+.receipt-price, .receipt-total, .receipt-quantity {
+  text-align: right;
+  font-weight: 400;
+  color: #555;
+}
+
+.receipt-total {
+  font-weight: 600; /* Total stands out */
+}
+
+.receipt-summary {
+  margin-top: 2rem;
+  text-align: right;
+  font-size: 1.2rem;
+  font-weight: 600;
+  border-top: 2px solid var(--primary-color); /* Stronger separator */
+  padding-top: 1rem;
+}
+
+.receipt-grand-total,
+.receipt-remaining {
+  margin-top: 0.5rem;
+  display: flex; /* Use flex to align label and value */
+  justify-content: flex-end; /* Push to right */
+  gap: 1rem; /* Space between label and value */
+}
+
+.receipt-grand-total span:last-child {
+  color: var(--accent-color);
+  min-width: 150px; /* Align totals */
+  text-align: right;
+}
+
+.receipt-remaining span:last-child {
+  color: var(--success-color);
+  min-width: 150px; /* Align totals */
+  text-align: right;
+}
+
+.empty-receipt-message {
+  text-align: center;
+  font-style: italic;
+  color: #777;
+  padding: 2rem 0;
+}
+
+/* Responsive Styles for billionaire.html specifics */
+@media (max-width: 768px) {
+  .billionaire-header .container {
+    padding-top: 4rem; /* Make space for back button */
+  }
+  .back-button {
+    top: 1rem;
+    left: 1rem;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+  .billionaire-info h1 {
+    font-size: 2rem;
+  }
+  .money-container {
+    min-width: unset; /* Remove min-width on small screens */
+    width: 100%;
+  }
+  .actions {
+      flex-direction: column;
+      width: 100%; /* Full width buttons */
+  }
+  .action-button {
+      width: 100%;
+  }
+  .items-grid {
+    grid-template-columns: 1fr;
+  }
+  .item-card {
+    padding: 1rem;
+  }
+  .item-card img {
+    height: 150px;
+  }
+  .receipt-header, .receipt-item {
+    grid-template-columns: 1.5fr 0.7fr 1fr 1fr; /* Adjust columns for smaller screens */
+    font-size: 0.9rem;
+  }
+  .receipt-summary {
+    font-size: 1rem;
+  }
+}
