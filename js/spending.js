@@ -106,18 +106,34 @@ function calculateTotal() {
   updateMoneyDisplay();
 }
 
+
 // Updates the receipt section
 function updateReceipt() {
   const receiptItemsContainer = document.getElementById('receipt-items');
   const grandTotalElement = document.getElementById('grand-total');
-  const emptyMessage = document.getElementById('empty-receipt-message');
+  const emptyMessage = document.getElementById('empty-receipt-message'); // This is where it becomes null if not found
 
-  receiptItemsContainer.innerHTML = ''; // Clear previous receipt items
+  // Defensive check: If emptyMessage is null, we cannot manipulate its style.
+  // Log an error and gracefully exit the function for this part.
+  if (!emptyMessage) {
+    console.error("Fatal Error: The 'empty-receipt-message' element was not found in the DOM. Please check billionaire.html.");
+    // We can still try to clear the container and update total, even without the empty message logic
+    if (receiptItemsContainer) { // Ensure receiptItemsContainer exists before clearing
+      receiptItemsContainer.innerHTML = '';
+    }
+    if (grandTotalElement) { // Ensure grandTotalElement exists before updating
+      grandTotalElement.textContent = formatCurrency(moneySpent);
+    }
+    return; // Exit the function to prevent further errors
+  }
 
+  // Original logic for updating based on cart length
   if (cart.length === 0) {
     emptyMessage.style.display = 'block'; // Show empty message
+    receiptItemsContainer.innerHTML = ''; // Clear any previously displayed items when cart is empty
   } else {
     emptyMessage.style.display = 'none'; // Hide empty message
+    receiptItemsContainer.innerHTML = ''; // Clear previous receipt items BEFORE adding new ones
     cart.forEach(item => {
       const itemTotal = item.price * item.quantity;
       const receiptItemDiv = document.createElement('div');
@@ -131,8 +147,12 @@ function updateReceipt() {
       receiptItemsContainer.appendChild(receiptItemDiv);
     });
   }
-  grandTotalElement.textContent = formatCurrency(moneySpent);
+  // Ensure grandTotalElement exists before updating
+  if (grandTotalElement) {
+    grandTotalElement.textContent = formatCurrency(moneySpent);
+  }
 }
+
 
 // Resets all spending
 function resetSpending() {
